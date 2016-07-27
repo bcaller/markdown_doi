@@ -15,6 +15,9 @@ Add `'markdown_doi'` to your Markdown call and watch the magic unfold:
 
 >>> markdown = Markdown(extensions=['markdown_doi']
 >>> markdown.convert('doi:10.1016/j.applanim.2010.02.004')
+```
+outputs
+```html
 <p><span class="doi"><a href="http://dx.doi.org/10.1016/j.applanim.2010.02.004">Are cows more likely to lie down the longer they stand?</a> <span class="doi-year">(2010)</span></span></p>
 ```
 
