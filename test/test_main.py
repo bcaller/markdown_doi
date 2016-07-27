@@ -5,7 +5,6 @@ import markdown
 import pytest
 from requests.exceptions import HTTPError
 import vcr
-from simplejson import JSONDecodeError
 
 from markdown_doi.md_doi import makeExtension as makeDoiExtension
 
@@ -61,7 +60,7 @@ def test_non_existent(md):
 @vcr.use_cassette('test/cassettes/api_malformed.yml')
 def test_bad_json(md):
     text = doify(GOOD_ARTICLE_DOI)
-    with pytest.raises(JSONDecodeError):
+    with pytest.raises(ValueError):
         md.convert(text)
 
 
