@@ -29,7 +29,7 @@ message key of [the JSON API response](https://api.crossref.org/works/10.1016/j.
 and returns a `markdown.util.etree.ElementTree`. See the default `template_title_link_year` function.
 
 ```python
-from markdown_doi.md_doi import makeExtension as makeDoiExtension
+from markdown_doi import makeExtension as makeDoiExtension
 
 def templater(metadata, doi_pattern):
     el = markdown.util.etree.Element("span")

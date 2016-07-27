@@ -1,3 +1,4 @@
+# Copyright 2016 Ben Caller
 import gzip
 import json
 

@@ -35,14 +35,13 @@ setup(
     version='1.0.0',
     description='Convert doi:10.xxxxx/xxxx to nice bibliographic metadata',
     long_description=readme(),
-    url='https://github.com/bcaller/pinyin_markdown',
+    url='https://github.com/bcaller/markdown_doi',
     py_modules=['markdown_doi'],
     license='AGPLv3',
     author='Ben Caller',
     author_email='bcaller [at] gmail dot com',
     keywords='doi research journals markdown',
     tests_require=[
-        'mock',
         'pytest',
         'vcrpy'
     ],
