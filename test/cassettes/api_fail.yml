@@ -1,0 +1,22 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.10.0]
+    method: GET
+    uri: https://api.crossref.org/works/10.1016/j.appXXXlanim.20XXXXX10.02.004
+  response:
+    body: {string: Resource not found.}
+    headers:
+      Access-Control-Allow-Headers: [X-Requested-With]
+      Access-Control-Allow-Origin: ['*']
+      Connection: [close]
+      Content-Length: ['19']
+      Content-Type: [text/plain]
+      Date: ['Wed, 27 Jul 2016 00:20:11 GMT']
+      Server: [http-kit]
+    status: {code: 404, message: Not Found}
+version: 1

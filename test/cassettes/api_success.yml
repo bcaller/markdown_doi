@@ -1,0 +1,30 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.10.0]
+    method: GET
+    uri: https://api.crossref.org/works/10.1016/j.applanim.2010.02.004
+  response:
+    body: {string: '{"status":"ok","message-type":"work","message-version":"1.0.0","message":{"indexed":{"date-parts":[[2015,12,27]],"date-time":"2015-12-27T11:19:00Z","timestamp":1451215140094},"reference-count":32,"publisher":"Elsevier
+        BV","issue":"1-2","license":[{"content-version":"tdm","delay-in-days":0,"start":{"date-parts":[[2010,4,1]],"date-time":"2010-04-01T00:00:00Z","timestamp":1270080000000},"URL":"http:\/\/www.elsevier.com\/tdm\/userlicense\/1.0\/"}],"published-print":{"date-parts":[[2010,4]]},"DOI":"10.1016\/j.applanim.2010.02.004","type":"journal-article","created":{"date-parts":[[2010,3,2]],"date-time":"2010-03-02T09:47:57Z","timestamp":1267523277000},"page":"1-10","source":"CrossRef","title":["Are
+        cows more likely to lie down the longer they stand?"],"prefix":"http:\/\/id.crossref.org\/prefix\/10.1016","volume":"124","author":[{"affiliation":[],"family":"Tolkamp","given":"Bert
+        J."},{"affiliation":[],"family":"Haskell","given":"Marie J."},{"affiliation":[],"family":"Langford","given":"Fritha
+        M."},{"affiliation":[],"family":"Roberts","given":"David J."},{"affiliation":[],"family":"Morgan","given":"Colin
+        A."}],"member":"http:\/\/id.crossref.org\/member\/78","container-title":["Applied
+        Animal Behaviour Science"],"link":[{"intended-application":"text-mining","content-version":"vor","content-type":"text\/xml","URL":"http:\/\/api.elsevier.com\/content\/article\/PII:S0168159110000547?httpAccept=text\/xml"},{"intended-application":"text-mining","content-version":"vor","content-type":"text\/plain","URL":"http:\/\/api.elsevier.com\/content\/article\/PII:S0168159110000547?httpAccept=text\/plain"}],"deposited":{"date-parts":[[2015,12,25]],"date-time":"2015-12-25T02:10:50Z","timestamp":1451009450000},"score":1.0,"subtitle":[],"issued":{"date-parts":[[2010,4]]},"alternative-id":["S0168159110000547"],"URL":"http:\/\/dx.doi.org\/10.1016\/j.applanim.2010.02.004","ISSN":["0168-1591"],"subject":["Food
+        Animals","Animal Science and Zoology"]}}'}
+    headers:
+      Access-Control-Allow-Headers: [X-Requested-With]
+      Access-Control-Allow-Origin: ['*']
+      Connection: [close]
+      Content-Length: ['1952']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Wed, 27 Jul 2016 00:20:10 GMT']
+      Server: [http-kit]
+      Vary: [Accept]
+    status: {code: 200, message: OK}
+version: 1

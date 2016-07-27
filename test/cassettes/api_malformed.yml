@@ -1,0 +1,23 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.10.0]
+    method: GET
+    uri: https://api.crossref.org/works/10.1016/j.applanim.2010.02.004
+  response:
+    body: {string: '{'}
+    headers:
+      Access-Control-Allow-Headers: [X-Requested-With]
+      Access-Control-Allow-Origin: ['*']
+      Connection: [close]
+      Content-Length: ['1']
+      Content-Type: [application/json;charset=UTF-8]
+      Date: ['Wed, 27 Jul 2016 00:20:10 GMT']
+      Server: [http-kit]
+      Vary: [Accept]
+    status: {code: 200, message: OK}
+version: 1
