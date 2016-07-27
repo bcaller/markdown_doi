@@ -11,7 +11,7 @@ RE_DOI = r'''(?x)(?i)
 (?<![/-_@\w])                                   # Nothing bad before the doi
 doi:
 (
-    10.
+    10\.
     \d{4,9}/                                    # Prefix
     [-._;()/:A-Z0-9]+                           # Suffix
     \b(?![\d\-_@])                              # Don't allow last char to be followed by these
@@ -26,12 +26,12 @@ class DoiPattern(LinkPattern):
     def __init__(self, md, templater, cache_file=None, cache=None):
         """
 
-        :param templater: of type Callable[[Dict, LinkPattern], etree.ElementTree]
+        :param Callable[[Dict, LinkPattern], etree.ElementTree] templater: function which processes the metadata
         """
         self._templater = templater
         self._cache_file = cache_file
         self._cache = cache
-        super().__init__(RE_DOI, md)
+        super(LinkPattern, self).__init__(RE_DOI, md)
 
     def _cached_get_json(self, doi):
         if self._cache_file is not None or self._cache is not None:
@@ -75,7 +75,13 @@ class DoiPattern(LinkPattern):
         return self._templater(metadata, self)
 
 
-def template_title_link_year(metadata, doi_pattern: DoiPattern) -> etree.ElementTree:
+def template_title_link_year(metadata, doi_pattern):
+    """
+    Take the metadata and output a link to the article with the article title as the text, followed by the year
+    :param dict metadata: Metadata about the target of the DOI
+    :param DoiPattern doi_pattern: The DoiPattern instance which has matched this DOI
+    :rtype: etree.ElementTree
+    """
     el = etree.Element("span")
     el.attrib = {"class": 'doi'}
 

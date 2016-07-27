@@ -23,7 +23,7 @@ class PyTest(TestCommand):
 
 
 def readme():
-    with open(path.join(path.abspath(path.dirname(__file__)), 'README.md'), encoding="utf8") as f:
+    with open(path.join(path.abspath(path.dirname(__file__)), 'README.md')) as f:
         try:
             from pypandoc import convert
             return convert(f.read(), 'rst', 'md')
@@ -57,6 +57,8 @@ setup(
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.4',

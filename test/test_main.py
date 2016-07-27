@@ -21,7 +21,7 @@ def md():
     return markdown.Markdown(extensions=['markdown_doi'])
 
 
-@pytest.fixture(params=['hello', 'doi:10.101/j.applanim.2010.02.004', '10.1016/j.applanim.2010.02.004',
+@pytest.fixture(params=['hello', 'doi:10.101/j.appl', '10.1016/j.appl', 'doi:10X1016/j.appl',
                         'doi:10/1234.32470j', GOOD_ARTICLE_DOI + '!X', 'a' + GOOD_ARTICLE_DOI])
 def bad_doi(request):
     return request.param
