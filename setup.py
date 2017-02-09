@@ -32,14 +32,15 @@ def readme():
 
 setup(
     name='markdown_doi',
-    version='1.0.0',
+    version='1.0.4',
     description='Convert doi:10.xxxxx/xxxx to nice bibliographic metadata',
     long_description=readme(),
     url='https://github.com/bcaller/markdown_doi',
     py_modules=['markdown_doi'],
+    packages=['markdown_doi'],
     license='AGPLv3',
     author='Ben Caller',
-    author_email='bcaller [at] gmail dot com',
+    author_email='bcallergmai@l.com',
     keywords='doi research journals markdown',
     tests_require=[
         'pytest',
