@@ -32,7 +32,7 @@ def readme():
 
 setup(
     name='markdown_doi',
-    version='1.0.4',
+    version='1.1.0',
     description='Convert doi:10.xxxxx/xxxx to nice bibliographic metadata',
     long_description=readme(),
     url='https://github.com/bcaller/markdown_doi',
@@ -64,6 +64,7 @@ setup(
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Text Processing :: Filters',

@@ -5,7 +5,7 @@ import json
 import requests
 from markdown import Extension
 from markdown.util import etree
-from markdown.inlinepatterns import LinkPattern
+from markdown.inlinepatterns import InlineProcessor
 
 RE_DOI = r'''(?x)(?i)
 (?<![/-_@\w])                                   # Nothing bad before the doi
@@ -20,7 +20,7 @@ doi:
 API_URL = 'https://api.crossref.org/works/{doi}'
 
 
-class DoiPattern(LinkPattern):
+class DoiPattern(InlineProcessor):
     """Convert doi links to clickable links."""
 
     def __init__(self, md, templater, cache_file=None, cache=None):
@@ -31,7 +31,7 @@ class DoiPattern(LinkPattern):
         self._templater = templater
         self._cache_file = cache_file
         self._cache = cache
-        super(LinkPattern, self).__init__(RE_DOI, md)
+        super(InlineProcessor, self).__init__(RE_DOI, md)
 
     def _cached_get_json(self, doi):
         if self._cache_file is not None or self._cache is not None:
@@ -67,12 +67,12 @@ class DoiPattern(LinkPattern):
             raise Exception("DOI API was not OK!")
         return req_json["message"]
 
-    def handleMatch(self, m):
+    def handleMatch(self, m, data):
         """Handle DOI matches."""
 
         doi = m.group(2)
         metadata = self._cached_get_json(doi)
-        return self._templater(metadata, self)
+        return self._templater(metadata, self), m.start(0), m.end(0)
 
 
 def template_title_link_year(metadata, doi_pattern):
@@ -87,7 +87,7 @@ def template_title_link_year(metadata, doi_pattern):
 
     link = etree.SubElement(el, "a")
     link.text = metadata["title"][0]
-    link.set("href", doi_pattern.sanitize_url(metadata["URL"]))
+    link.set("href", metadata["URL"])
     link.tail = " "
 
     year = etree.SubElement(el, "span")
@@ -117,11 +117,11 @@ class DoiExtension(Extension):
             self.setConfig('cache', None)
 
 
-    def extendMarkdown(self, md, md_globals):
+    def extendMarkdown(self, md):
         """Add support for turning html links and emails to link tags."""
 
         link_pattern = DoiPattern(md, **self.getConfigs())
-        md.inlinePatterns.add("doi-link", link_pattern, "<not_strong")
+        md.inlinePatterns.register(link_pattern, "<not_strong", 80)
 
 
 def makeExtension(*args, **kwargs):
